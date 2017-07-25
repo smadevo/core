@@ -10,22 +10,12 @@ use App\Database;
 /**
  * @inheritDoc
  */
-final class Base implements Database
+abstract class Base extends PDO implements Database
 {
-    /**
-     * Constructor.
-     *
-     * @param PDO $pdo
-     */
-    public function __construct(PDO $pdo)
-    {
-        $this->pdo = $pdo;
-    }
-
     /**
      * @inheritDoc
      */
-    public function execute(string $statement, array $parameters): PDOStatement
+    final public function execute(string $statement, array $parameters): PDOStatement
     {
         $placeholders = [];
 
@@ -50,7 +40,7 @@ final class Base implements Database
         );
 
         // Prepare and execute statement.
-        $statement = $this->pdo->prepare(
+        $statement = $this->prepare(
             // Insert placeholders.
             vsprintf($statement, $placeholders)
         );
