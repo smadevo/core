@@ -18,7 +18,7 @@ abstract class Base implements View
         $type    = $this->getType();
         $charset = $this->getCharset();
         $body    = $this->renderTemplateWith($data);
-        $length  = mb_strlen($body);
+        $length  = strlen($body);
 
         $request->sendResponseHeader(
             "Content-Type: {$type}; charset={$charset}"
