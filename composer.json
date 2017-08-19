@@ -4,9 +4,8 @@
     "version":     "1.0.0",
     "require":
     {
-        "php":          "^7.1",
-        "ext-mbstring": "^7.1",
-        "ext-pdo":      "^7.1"
+        "php":     "^7.1",
+        "ext-pdo": "^7.1"
     },
     "autoload":
     {
