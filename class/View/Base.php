@@ -13,7 +13,7 @@ abstract class Base implements View
     /**
      * @inheritDoc
      */
-    final public function sendWith(array $data, Request $request): void
+    final public function sendTo(Request $request, array $data): void
     {
         $type    = $this->getType();
         $charset = $this->getCharset();
