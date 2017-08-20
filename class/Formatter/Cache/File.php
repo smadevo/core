@@ -2,7 +2,6 @@
 namespace App\Formatter\Cache;
 
 use App\Formatter;
-use RuntimeException;
 
 /**
  * @inheritDoc

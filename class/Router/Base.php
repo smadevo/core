@@ -37,7 +37,6 @@ final class Base implements Router
             $route->handle($request);
             return;
         }
-        // Not found.
         $request->sendResponseStatus(404);
     }
 }
