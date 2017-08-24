@@ -34,7 +34,9 @@ final class Base implements Router
             if (!$route->matches($request)) {
                 continue;
             }
-            $route->handle($request);
+            if (!$route->handles($request)) {
+                continue;
+            }
             return;
         }
         $request->sendResponseStatus(404);

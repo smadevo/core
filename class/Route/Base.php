@@ -42,8 +42,8 @@ final class Base implements Route
     /**
      * @inheritDoc
      */
-    public function handle(Request $request): void
+    public function handles(Request $request): bool
     {
-        $request->getHandledBy($this->controller);
+        return $request->getHandledBy($this->controller);
     }
 }

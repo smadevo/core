@@ -16,11 +16,11 @@ interface Route
     public function matches(Request $request): bool;
 
     /**
-     * Handles a request.
+     * Tries to handle a request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function handle(Request $request): void;
+    public function handles(Request $request): bool;
 }

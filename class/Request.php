@@ -20,9 +20,9 @@ interface Request
      *
      * @param Controller $controller
      *
-     * @return void
+     * @return bool
      */
-    public function getHandledBy(Controller $controller): void;
+    public function getHandledBy(Controller $controller): bool;
 
     /**
      * Responds with a given HTTP response status.

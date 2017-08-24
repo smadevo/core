@@ -12,79 +12,79 @@ interface Controller
      * @param Request $request
      * @param array   $parameters
      *
-     * @return void
+     * @return bool
      */
-    public function get(Request $request, array $parameters): void;
+    public function get(Request $request, array $parameters): bool;
 
     /**
      * Processes and responds to a given HTTP HEAD request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function head(Request $request): void;
+    public function head(Request $request): bool;
 
     /**
      * Processes and responds to a given HTTP POST request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function post(Request $request): void;
+    public function post(Request $request): bool;
 
     /**
      * Processes and responds to a given HTTP PUT request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function put(Request $request): void;
+    public function put(Request $request): bool;
 
     /**
      * Processes and responds to a given HTTP DELETE request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function delete(Request $request): void;
+    public function delete(Request $request): bool;
 
     /**
      * Processes and responds to a given HTTP TRACE request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function trace(Request $request): void;
+    public function trace(Request $request): bool;
 
     /**
      * Processes and responds to a given HTTP OPTIONS request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function options(Request $request): void;
+    public function options(Request $request): bool;
 
     /**
      * Processes and responds to a given HTTP CONNECT request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function connect(Request $request): void;
+    public function connect(Request $request): bool;
 
     /**
      * Processes and responds to a given HTTP PATCH request.
      *
      * @param Request $request
      *
-     * @return void
+     * @return bool
      */
-    public function patch(Request $request): void;
+    public function patch(Request $request): bool;
 }

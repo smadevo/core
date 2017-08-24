@@ -12,72 +12,81 @@ abstract class Base implements Controller
     /**
      * @inheritDoc
      */
-    public function get(Request $request, array $parameters): void
+    public function get(Request $request, array $parameters): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function head(Request $request): void
+    public function head(Request $request): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function post(Request $request): void
+    public function post(Request $request): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function put(Request $request): void
+    public function put(Request $request): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function delete(Request $request): void
+    public function delete(Request $request): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function trace(Request $request): void
+    public function trace(Request $request): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function options(Request $request): void
+    public function options(Request $request): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function connect(Request $request): void
+    public function connect(Request $request): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 
     /**
      * @inheritDoc
      */
-    public function patch(Request $request): void
+    public function patch(Request $request): bool
     {
         $request->sendResponseStatus(405);
+        return true;
     }
 }

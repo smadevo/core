@@ -28,7 +28,7 @@ abstract class Base implements Request
     /**
      * @inheritDoc
      */
-    final public function getHandledBy(Controller $controller): void
+    final public function getHandledBy(Controller $controller): bool
     {
         if (isset($this->parameters[1])) {
             $parameters = array_slice($this->parameters, 1);
@@ -37,33 +37,25 @@ abstract class Base implements Request
         }
         switch ($this->getMethod()) {
             case 'GET':
-                $controller->get($this, $parameters);
-                break;
+                return $controller->get($this, $parameters);
             case 'HEAD':
-                $controller->head($this);
-                break;
+                return $controller->head($this);
             case 'POST':
-                $controller->post($this);
-                break;
+                return $controller->post($this);
             case 'PUT':
-                $controller->put($this);
-                break;
+                return $controller->put($this);
             case 'DELETE':
-                $controller->delete($this);
-                break;
+                return $controller->delete($this);
             case 'TRACE':
-                $controller->trace($this);
-                break;
+                return $controller->trace($this);
             case 'OPTIONS':
-                $controller->options($this);
-                break;
+                return $controller->options($this);
             case 'CONNECT':
-                $controller->connect($this);
-                break;
+                return $controller->connect($this);
             default:
                 // Method not allowed.
                 $this->sendResponseStatus(405);
-                break;
+                return true;
         }
     }
 
