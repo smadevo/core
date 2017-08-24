@@ -38,6 +38,7 @@ final class Router implements \App\Router
             }
             return;
         }
+        // Not found.
         $request->sendResponseStatus(404);
     }
 }

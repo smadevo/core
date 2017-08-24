@@ -27,6 +27,8 @@ abstract class Base implements \App\Request
 
     /**
      * @inheritDoc
+     *
+     * @throws Throwable
      */
     final public function getHandledBy(Controller $controller): bool
     {
@@ -35,7 +37,7 @@ abstract class Base implements \App\Request
         } else {
             $parameters = [];
         }
-        switch ($this->getMethod()) {
+        try { switch ($this->getMethod()) {
             case 'GET':
                 return $controller->get($this, $parameters);
             case 'HEAD':
@@ -56,6 +58,10 @@ abstract class Base implements \App\Request
                 // Method not allowed.
                 $this->sendResponseStatus(405);
                 return true;
+        }} catch (Throwable $throwable) {
+            // Internal server error.
+            $this->sendResponseStatus(500);
+            throw $throwable;
         }
     }
 
