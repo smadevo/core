@@ -1,7 +1,6 @@
 <?php
 namespace App\Database;
 
-use App\Database;
 use PDO;
 use PDOStatement;
 use RecursiveArrayIterator;
@@ -10,7 +9,7 @@ use RecursiveIteratorIterator;
 /**
  * @inheritDoc
  */
-final class Base implements Database
+final class Database implements \App\Database
 {
     /**
      * @var PDO
@@ -29,6 +28,9 @@ final class Base implements Database
 
     /**
      * @inheritDoc
+     *
+     * @uses RecursiveIteratorIterator
+     * @uses RecursiveArrayIterator
      */
     public function execute(string $statement, array $parameters = []): PDOStatement
     {

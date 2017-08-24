@@ -1,14 +1,12 @@
 <?php
 namespace App\Formatter;
 
-use App\Formatter;
-
 /**
  * Provides basic caching capabilities.
  *
  * @inheritDoc
  */
-interface Cache extends Formatter
+interface Cache extends \App\Formatter
 {
     /**
      * Expires the cache.

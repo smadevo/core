@@ -3,12 +3,11 @@ namespace App\Route;
 
 use App\Controller;
 use App\Request;
-use App\Route;
 
 /**
  * @inheritDoc
  */
-final class Base implements Route
+final class Route implements \App\Route
 {
     /**
      * @var string

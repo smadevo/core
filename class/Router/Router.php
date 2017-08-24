@@ -3,12 +3,11 @@ namespace App\Router;
 
 use App\Request;
 use App\Route;
-use App\Router;
 
 /**
  * @inheritDoc
  */
-final class Base implements Router
+final class Router implements \App\Router
 {
     /**
      * @var Route[]

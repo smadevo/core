@@ -2,13 +2,12 @@
 namespace App\View;
 
 use App\Request;
-use App\View;
 use Throwable;
 
 /**
  * @inheritDoc
  */
-abstract class Base implements View
+abstract class Base implements \App\View
 {
     /**
      * @inheritDoc

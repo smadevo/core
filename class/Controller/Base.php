@@ -1,13 +1,12 @@
 <?php
 namespace App\Controller;
 
-use App\Controller;
 use App\Request;
 
 /**
  * @inheritDoc
  */
-abstract class Base implements Controller
+abstract class Base implements \App\Controller
 {
     /**
      * @inheritDoc

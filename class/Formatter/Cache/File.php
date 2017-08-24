@@ -6,7 +6,7 @@ use App\Formatter;
 /**
  * @inheritDoc
  */
-final class File implements Formatter\Cache
+final class File implements \App\Formatter\Cache
 {
     /**
      * @var string

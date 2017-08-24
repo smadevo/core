@@ -2,12 +2,12 @@
 namespace App\Request;
 
 use App\Controller;
-use App\Request;
+use Throwable;
 
 /**
  * @inheritDoc
  */
-abstract class Base implements Request
+abstract class Base implements \App\Request
 {
     /**
      * @var array
