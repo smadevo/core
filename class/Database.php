@@ -16,5 +16,5 @@ interface Database
      *
      * @return PDOStatement
      */
-    public function execute(string $statement, array $parameters): PDOStatement;
+    public function execute(string $statement, array $parameters = []): PDOStatement;
 }

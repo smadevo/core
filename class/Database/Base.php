@@ -30,7 +30,7 @@ final class Base implements Database
     /**
      * @inheritDoc
      */
-    public function execute(string $statement, array $parameters): PDOStatement
+    public function execute(string $statement, array $parameters = []): PDOStatement
     {
         $placeholders = [];
         /*
