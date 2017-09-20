@@ -1,13 +1,13 @@
 <?php
-namespace App\Router;
+namespace Smadevo\Router;
 
-use App\Request;
-use App\Route;
+use Smadevo\Request;
+use Smadevo\Route;
 
 /**
  * @inheritDoc
  */
-final class Router implements \App\Router
+abstract class Base implements \Smadevo\Router
 {
     /**
      * @var Route[]
@@ -19,7 +19,7 @@ final class Router implements \App\Router
      *
      * @param Route[] $routes
      */
-    public function __construct(Route ...$routes)
+    final public function __construct(Route ...$routes)
     {
         $this->routes = $routes;
     }
@@ -27,7 +27,7 @@ final class Router implements \App\Router
     /**
      * @inheritDoc
      */
-    public function route(Request $request): void
+    final public function route(Request $request): void
     {
         foreach ($this->routes as $route) {
             if (!$route->matches($request)) {
@@ -38,7 +38,9 @@ final class Router implements \App\Router
             }
             return;
         }
-        // Not found.
+        /*
+        Not found.
+        */
         $request->sendResponseStatus(404);
     }
 }

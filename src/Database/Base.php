@@ -1,5 +1,5 @@
 <?php
-namespace App\Database;
+namespace Smadevo\Database;
 
 use PDO;
 use PDOStatement;
@@ -9,7 +9,7 @@ use RecursiveIteratorIterator;
 /**
  * @inheritDoc
  */
-final class Database implements \App\Database
+abstract class Base implements \Smadevo\Database
 {
     /**
      * @var PDO
@@ -21,7 +21,7 @@ final class Database implements \App\Database
      *
      * @param PDO $pdo
      */
-    public function __construct(PDO $pdo)
+    final public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
     }
@@ -32,7 +32,7 @@ final class Database implements \App\Database
      * @uses RecursiveIteratorIterator
      * @uses RecursiveArrayIterator
      */
-    public function execute(string $statement, array $parameters = []): PDOStatement
+    final public function execute(string $statement, array $parameters = []): PDOStatement
     {
         $placeholders = [];
         /*

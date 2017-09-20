@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Smadevo;
 
 /**
  * Routes a request.

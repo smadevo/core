@@ -1,53 +1,17 @@
 <?php
-namespace App\Controller;
+namespace Smadevo\Controller;
 
-use App\Request;
+use Smadevo\Request;
 
 /**
  * @inheritDoc
  */
-abstract class Base implements \App\Controller
+abstract class Base implements \Smadevo\Controller
 {
     /**
      * @inheritDoc
      */
-    public function get(Request $request, array $parameters): bool
-    {
-        $request->sendResponseStatus(405);
-        return true;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function head(Request $request): bool
-    {
-        $request->sendResponseStatus(405);
-        return true;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function post(Request $request): bool
-    {
-        $request->sendResponseStatus(405);
-        return true;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function put(Request $request): bool
-    {
-        $request->sendResponseStatus(405);
-        return true;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function delete(Request $request): bool
+    public function options(Request $request): bool
     {
         $request->sendResponseStatus(405);
         return true;
@@ -65,15 +29,6 @@ abstract class Base implements \App\Controller
     /**
      * @inheritDoc
      */
-    public function options(Request $request): bool
-    {
-        $request->sendResponseStatus(405);
-        return true;
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function connect(Request $request): bool
     {
         $request->sendResponseStatus(405);
@@ -83,7 +38,52 @@ abstract class Base implements \App\Controller
     /**
      * @inheritDoc
      */
+    public function head(Request $request): bool
+    {
+        $request->sendResponseStatus(405);
+        return true;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function get(Request $request, array $parameters): bool
+    {
+        $request->sendResponseStatus(405);
+        return true;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function put(Request $request): bool
+    {
+        $request->sendResponseStatus(405);
+        return true;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function patch(Request $request): bool
+    {
+        $request->sendResponseStatus(405);
+        return true;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function delete(Request $request): bool
+    {
+        $request->sendResponseStatus(405);
+        return true;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function post(Request $request): bool
     {
         $request->sendResponseStatus(405);
         return true;

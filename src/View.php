@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Smadevo;
 
 /**
  * Renders a view.

@@ -1,13 +1,13 @@
 <?php
-namespace App\View;
+namespace Smadevo\View;
 
-use App\Request;
+use Smadevo\Request;
 use Throwable;
 
 /**
  * @inheritDoc
  */
-abstract class Base implements \App\View
+abstract class Base implements \Smadevo\View
 {
     /**
      * @inheritDoc

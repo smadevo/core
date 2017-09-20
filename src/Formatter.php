@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Smadevo;
 
 /**
  * Formats view data.

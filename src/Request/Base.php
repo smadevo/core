@@ -1,18 +1,40 @@
 <?php
-namespace App\Request;
+namespace Smadevo\Request;
 
-use App\Controller;
+use Smadevo\Controller;
 use Throwable;
 
 /**
  * @inheritDoc
  */
-abstract class Base implements \App\Request
+abstract class Base implements \Smadevo\Request
 {
+    /**
+     * @var string
+     */
+    private $method;
+
+    /**
+     * @var string
+     */
+    private $path;
+
     /**
      * @var array
      */
     private $parameters;
+
+    /**
+     * Constructor.
+     *
+     * @param string $method
+     * @param string $path
+     */
+    final public function __construct(string $method, string $path)
+    {
+        $this->method = $method;
+        $this->path   = $path;
+    }
 
     /**
      * @inheritDoc
@@ -22,13 +44,11 @@ abstract class Base implements \App\Request
         $pattern          = sprintf('/^%s$/u', str_replace('/', '\/', $path));
         $this->parameters = [];
 
-        return preg_match($pattern, $this->getPath(), $this->parameters) === 1;
+        return preg_match($pattern, $this->path, $this->parameters) === 1;
     }
 
     /**
      * @inheritDoc
-     *
-     * @throws Throwable
      */
     final public function getHandledBy(Controller $controller): bool
     {
@@ -37,7 +57,7 @@ abstract class Base implements \App\Request
         } else {
             $parameters = [];
         }
-        try { switch ($this->getMethod()) {
+        try { switch ($this->method) {
             case 'GET':
                 return $controller->get($this, $parameters);
             case 'HEAD':
@@ -55,29 +75,19 @@ abstract class Base implements \App\Request
             case 'CONNECT':
                 return $controller->connect($this);
             default:
-                // Method not allowed.
+                /*
+                Method not allowed.
+                */
                 $this->sendResponseStatus(405);
                 return true;
         }} catch (Throwable $throwable) {
-            // Internal server error.
+            /*
+            Internal server error.
+            */
             $this->sendResponseStatus(500);
             throw $throwable;
         }
     }
-
-    /**
-     * Returns the request method for internal use.
-     *
-     * @return string
-     */
-    abstract protected function getMethod(): string;
-
-    /**
-     * Returns the request path for internal use.
-     *
-     * @return string
-     */
-    abstract protected function getPath(): string;
 
     /**
      * @inheritDoc

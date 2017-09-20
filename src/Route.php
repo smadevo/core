@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Smadevo;
 
 /**
  * Matches and handles a request.

@@ -1,5 +1,5 @@
 <?php
-namespace App;
+namespace Smadevo;
 
 /**
  * Provides a magic getter for entities.
@@ -7,9 +7,9 @@ namespace App;
 trait Entity
 {
     /**
-     * @inheritDoc
+     * @param string $property
      *
-     * @throws LogicException
+     * @return mixed
      */
     public function __get(string $property)
     {

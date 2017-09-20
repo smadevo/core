@@ -1,5 +1,7 @@
 <?php
-namespace App;
+namespace Smadevo;
+
+use Throwable;
 
 /**
  * Encapsulates an HTTP connection and request data.
@@ -21,6 +23,8 @@ interface Request
      * @param Controller $controller
      *
      * @return bool
+     *
+     * @throws Throwable
      */
     public function getHandledBy(Controller $controller): bool;
 
